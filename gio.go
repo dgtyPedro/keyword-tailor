@@ -2,6 +2,12 @@ package main
 
 import (
 	"fmt"
+	"image"
+	"log"
+	"os"
+	"os/exec"
+	"runtime"
+
 	"gioui.org/app"
 	"gioui.org/io/system"
 	"gioui.org/layout"
@@ -11,11 +17,6 @@ import (
 	"gioui.org/widget"
 	"gioui.org/widget/material"
 	"github.com/sqweek/dialog"
-	"image"
-	"log"
-	"os"
-	"os/exec"
-	"runtime"
 )
 
 type Navigator struct {
@@ -26,7 +27,7 @@ var nav = Navigator{
 	step: 1,
 }
 
-func main() {
+func gio() {
 	go func() {
 		w := app.NewWindow()
 		err := run(w)

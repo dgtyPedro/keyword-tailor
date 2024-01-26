@@ -3,12 +3,13 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/nguyenthenguyen/docx"
-	"github.com/sqweek/dialog"
 	"log"
 	"os"
 	"strconv"
 	"strings"
+
+	"github.com/nguyenthenguyen/docx"
+	"github.com/sqweek/dialog"
 )
 
 type KeywordPair struct {
@@ -58,14 +59,7 @@ func main() {
 			}
 			kps = append(kps, KeywordPair{keyword: kw, replacement: rp})
 		}
-
-		for _, pair := range kps {
-			_ = newFile.Replace(pair.keyword, pair.replacement, -1)
-			fmt.Printf("Chave: %s, Valor: %s\n", pair.keyword, pair.replacement)
-		}
 		_ = newFile.WriteToFile("./doc" + strconv.Itoa(i) + ".docx")
 	}
-
 	fmt.Println(filepath)
-
 }
